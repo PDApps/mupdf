@@ -1,13 +1,8 @@
 #include "mupdf/fitz.h"
 
-static inline int fz_tolower(int c)
-{
-	/* TODO: proper unicode case folding */
-	/* TODO: character equivalence (a matches ä, etc) */
-	if (c >= 'A' && c <= 'Z')
-		return c - 'A' + 'a';
-	return c;
-}
+#include <string.h>
+#include <limits.h>
+#include <assert.h>
 
 static inline int iswhite(int c)
 {
